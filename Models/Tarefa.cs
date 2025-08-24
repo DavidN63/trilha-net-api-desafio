@@ -1,16 +1,24 @@
+using Google.Cloud.Firestore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace TrilhaApiDesafio.Models
 {
+    [FirestoreData]
     public class Tarefa
     {
-        public int Id { get; set; }
+        [FirestoreDocumentId] 
+        public string Id { get; set; }
+
+        [FirestoreProperty]
         public string Titulo { get; set; }
+
+        [FirestoreProperty]
         public string Descricao { get; set; }
+
+        [FirestoreProperty]
         public DateTime Data { get; set; }
-        public EnumStatusTarefa Status { get; set; }
-    }
+
+        [FirestoreProperty]
+        public string Status { get; set; } 
+}
 }
